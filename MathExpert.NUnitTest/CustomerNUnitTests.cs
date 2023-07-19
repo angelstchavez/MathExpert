@@ -5,14 +5,19 @@ namespace MathExpert.NUnitTest
     [TestFixture]
     public class CustomerNUnitTests
     {
+        private Customer? Customer;
+
+        [SetUp]
+        public void SetUp()
+        {
+            Customer = new Customer();
+        }
+
         [Test]
         public void GreetCustomer_InsertFirstNameLastName_GetGreetFullname()
         {
-            //Arrage
-            Customer customer = new Customer();
-
             //Act
-            string result = customer.GreetCustomer("Angel", "Chavez");
+            string result = this.Customer!.GreetCustomer("Angel", "Chavez");
 
             //Assert
             Assert.AreEqual(result, "Hello Angel Chavez");
