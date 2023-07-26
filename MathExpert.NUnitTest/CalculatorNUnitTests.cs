@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Security.Cryptography;
 
 namespace MathExpert.NUnitTest
 {
@@ -74,6 +75,20 @@ namespace MathExpert.NUnitTest
 
             //Assert
             Assert.AreEqual(12.0, result, 1); //12.0 + 1 = 13.0
+        }
+
+        [Test]
+        public void GetOddRanks_InsertStartEnd_GetOddList()
+        {
+            //Arrange
+            Calculator calculator = new Calculator();
+            
+            //Act
+            List<int> listOfExpectedOddNumbers = new() { 3, 5, 7 };
+            List<int> result = calculator.GetOddRanks(3, 8);
+
+            //Assert
+            Assert.That(result, Is.EquivalentTo(listOfExpectedOddNumbers));
         }
     }
 }
